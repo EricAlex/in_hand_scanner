@@ -51,6 +51,7 @@ find_path(OPENNI2_INCLUDE_DIRS OpenNI.h
     PATHS
     "$ENV{OPENNI2_INCLUDE${OPENNI2_SUFFIX}}"  # Win64 needs '64' suffix
     /usr/include/openni2  # common path for deb packages
+    "$ENV{OPENNI2_INCLUDE}"
 )
 
 find_library(OPENNI2_LIBRARY
