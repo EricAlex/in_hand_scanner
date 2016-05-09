@@ -475,15 +475,15 @@ pcl::ihs::InHandScanner::startGrabberImpl ()
   starting_grabber_ = true;
   lock.unlock ();
     
-    boost::shared_ptr<pcl::io::openni2::OpenNI2DeviceManager> deviceManager = pcl::io::openni2::OpenNI2DeviceManager::getInstance ();
-    if (deviceManager->getNumOfConnectedDevices () > 0)
-    {
-        grabber_ = GrabberPtr (new Grabber("", pcl::io::OpenNI2Grabber::OpenNI_Default_Mode, pcl::io::OpenNI2Grabber::OpenNI_Default_Mode));
-    }
-    else
-    {
-        exit (EXIT_FAILURE);
-    }
+  boost::shared_ptr<pcl::io::openni2::OpenNI2DeviceManager> deviceManager = pcl::io::openni2::OpenNI2DeviceManager::getInstance ();
+  if (deviceManager->getNumOfConnectedDevices () > 0)
+  {
+      grabber_ = GrabberPtr (new Grabber("", pcl::io::OpenNI2Grabber::OpenNI_Default_Mode, pcl::io::OpenNI2Grabber::OpenNI_Default_Mode));
+  }
+  else
+  {
+      exit (EXIT_FAILURE);
+  }
 
   lock.lock ();
   if (destructor_called_) return;
